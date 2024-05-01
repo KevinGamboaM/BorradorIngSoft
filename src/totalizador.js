@@ -17,11 +17,25 @@ var puntajeLineas = 0;
        puntajeLineas = 50; 
      }else
        puntajeLineas;
-       
+
     return puntajeLineas;
     }
-            
+
+    function obtenerPuntajePorCobertura(cobertura) {
+     return cobertura;
+    }
+
+    function obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas,obtenerPuntajePorCantidadPruebas,obtenerPuntajePorCobertura) {
+      return (obtenerPuntajePorCantidadLineas + obtenerPuntajePorCantidadPruebas + obtenerPuntajePorCobertura) / 3;
+     }
      
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas};
+function obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas) {
+  if(puntajePruebas == 100){
+    return "Cantidad de pruebas correctas";
+  };
+  return "0";
+  }
+
+export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas};
 
     
