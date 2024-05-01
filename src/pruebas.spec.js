@@ -35,7 +35,9 @@ describe("Totalizador", () => {
     it("Retornamos la retroalimentacion correspondiente al puntaje de 50 de cantidad de lineas por commit", () => {
         expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(30))).toEqual("Tienes una cantidad de lineas superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit");
     });
-   
+    it("Retornamos la retroalimentacion correspondiente al puntaje de 50 de cantidad de lineas por commit", () => {
+        expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(40))).toEqual("Tienes una cantidad de lineas excesivamente superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit");
+    });
 
 
 });
