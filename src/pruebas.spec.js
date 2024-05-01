@@ -1,4 +1,4 @@
-import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas} from "./totalizador.js";
+import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas} from "./totalizador.js";
 
 
 describe("Totalizador", () => {
@@ -23,7 +23,16 @@ describe("Totalizador", () => {
     it("Retornamos el puntaje total por commit", () => {
         expect(obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas(30),obtenerPuntajePorCantidadPruebas(1),obtenerPuntajePorCobertura(90))).toEqual(80);
     });
-    it("Retornamos la retroalimentacion correspondiente al puntaje de 100 commit", () => {
+    it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de pruebas por commit", () => {
         expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(1))).toEqual("Cantidad de pruebas correctas");
     });
+    it("Retornamos la retroalimentacion correspondiente al puntaje de 0 de cantidad de pruebas por commit", () => {
+        expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(3))).toEqual("Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.");
+    });
+    it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de lineas por commit", () => {
+        expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(15))).toEqual("Cantidad de lineas correctas");
+    });
+   
+
+
 });
