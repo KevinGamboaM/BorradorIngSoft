@@ -1,4 +1,4 @@
-import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas} from "./totalizador.js";
+import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 
 
 describe("Totalizador", () => {
@@ -37,6 +37,12 @@ describe("Totalizador", () => {
     });
     it("Retornamos la retroalimentacion correspondiente al puntaje de 50 de cantidad de lineas por commit", () => {
         expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(40))).toEqual("Tienes una cantidad de lineas excesivamente superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit");
+    });
+    it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje menor 100", () => {
+        expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(90))).toEqual("Tienes lineas de codigo que pueden mejorarse en el commit");
+    });
+    it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje igual a 100", () => {
+        expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(100))).toEqual("Cobertura del commit correcta");
     });
 
 
