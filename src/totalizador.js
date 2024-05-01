@@ -1,4 +1,4 @@
-function obtenerPuntajePorCommit(cantidadPruebas) {
+function obtenerPuntajePorCantidadPruebas(cantidadPruebas) {
 var puntajePruebas = 0;
     if(cantidadPruebas <= 1){
       puntajePruebas = 100;
@@ -8,4 +8,4 @@ var puntajePruebas = 0;
     return puntajePruebas;
     }
     
-    export default obtenerPuntajePorCommit;
+    export default obtenerPuntajePorCantidadPruebas;
