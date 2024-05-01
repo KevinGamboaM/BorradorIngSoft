@@ -39,9 +39,10 @@ function obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas) {
 function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {
   if(puntajeLineas == 100){
     return "Cantidad de lineas correctas";
-  }else
-  return "0"
-  }  
+  }else if(puntajeLineas == 50){
+    return "Tienes una cantidad de lineas superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit";
+  }
+}
 
 export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas};
 
